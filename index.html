@@ -53,28 +53,27 @@
     </footer>
 
     <script>
-        function downloadVideo() {
-            const videoUrl = document.getElementById('videoUrl').value.trim();
-            const downloadBtn = document.getElementById('downloadBtn');
-            const loading = document.getElementById('loading');
+    function downloadVideo() {
+        const videoUrl = document.getElementById('videoUrl').value.trim();
+        const downloadBtn = document.getElementById('downloadBtn');
+        const loading = document.getElementById('loading');
 
-            if (!videoUrl) {
-                alert('Please paste a valid Facebook link!');
-                return;
-            }
-
-            loading.classList.remove('hidden');
-            downloadBtn.disabled = true;
-
-            // Smooth absolute redirect to fast server
-            var finalDestination = "https://savefrom.net" + encodeURIComponent(videoUrl);
-            
-            setTimeout(function() {
-                loading.classList.add('hidden');
-                downloadBtn.disabled = false;
-                window.location.href = finalDestination;
-            }, 1500);
+        if (!videoUrl) {
+            alert('Please paste a valid Facebook link!');
+            return;
         }
+
+        loading.classList.remove('hidden');
+        downloadBtn.disabled = true;
+
+        // সঠিক রিডাইরেক্ট ইউআরএল তৈরি
+        var finalDestination = "https://savefrom.net" + encodeURIComponent(videoUrl);
+        
+        setTimeout(function() {
+            loading.classList.add('hidden');
+            downloadBtn.disabled = false;
+            window.location.href = finalDestination;
+        }, 1500);
+    }
     </script>
-</body>
-</html>
+    
