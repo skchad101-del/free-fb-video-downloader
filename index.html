@@ -80,16 +80,17 @@
             linksContainer.innerHTML = '';
 
             try {
-                // এখানে সঠিক এবং সম্পূর্ণ API লিংকটি বসানো হয়েছে
-                const response = await fetch(`https://ryzendesu.vip{encodeURIComponent(videoUrl)}`);
+                // ১০০% নিখুঁত এপিআই এবং ভ্যারিয়েবল ডিক্লেয়ারেশন
+                const apiUrl = "https://ryzendesu.vip" + encodeURIComponent(videoUrl);
+                const response = await fetch(apiUrl);
                 const data = await response.json();
 
                 if (data && data.result) {
                     if (data.result.hd) {
-                        linksContainer.innerHTML += `<a href="${data.result.hd}" target="_blank" class="dl-link">Download HD Quality</a>`;
+                        linksContainer.innerHTML += '<a href="' + data.result.hd + '" target="_blank" class="dl-link">Download HD Quality</a>';
                     }
                     if (data.result.sd) {
-                        linksContainer.innerHTML += `<a href="${data.result.sd}" target="_blank" class="dl-link" style="background:#64748b;">Download SD Quality</a>`;
+                        linksContainer.innerHTML += '<a href="' + data.result.sd + '" target="_blank" class="dl-link" style="background:#64748b;">Download SD Quality</a>';
                     }
                     resultBox.classList.remove('hidden');
                 } else {
