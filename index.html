@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FBVideoDownloader - ফ্রি ফেসবুক ভিডিও ডাউনলোডার</title>
+    <!-- Tailwind CSS for Modern UI -->
+    <script src="https://jsdelivr.net"></script>
+    <link rel="stylesheet" href="https://cloudflare.com">
+</head>
+<body class="bg-slate-50 font-sans text-slate-800 min-h-screen flex flex-col justify-between">
+
+    <!-- Header / Navbar -->
+    <header class="bg-white shadow-sm py-4 px-6 flex justify-between items-center max-w-6xl mx-auto w-full rounded-b-xl">
+        <div class="flex items-center space-x-2 gap-2">
+            <i class="fab fa-facebook text-blue-600 text-3xl"></i>
+            <span class="text-xl font-black text-slate-900 tracking-tight">FBVideo<span class="text-blue-600">Downloader</span></span>
+        </div>
+        <span class="bg-blue-50 text-blue-700 text-xs font-bold px-3 py-1 rounded-full">১০০% ফ্রি</span>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-4xl mx-auto w-full px-4 py-12 flex-grow flex flex-col items-center justify-center">
+        
+        <!-- Downloader Card -->
+        <div class="bg-white p-6 sm:p-10 rounded-2xl shadow-xl border border-slate-100 w-full max-w-2xl text-center backdrop-blur-md">
+            <h1 class="text-2xl sm:text-4xl font-extrabold text-slate-900 mb-3 tracking-tight">ফেসবুক ভিডিও ডাউনলোড করুন সরাসরি</h1>
+            <p class="text-slate-500 text-sm sm:text-base mb-8">যেকোনো ফেসবুক ভিডিওর লিংক নিচে পেস্ট করে এক ক্লিকে ফুল এইচডি (HD) কোয়ালিটিতে ডাউনলোড করুন।</p>
+
+            <!-- Input Box Wrapper -->
+            <div class="flex flex-col sm:flex-row gap-3 mb-4">
+                <div class="relative flex-grow">
+                    <i class="fas fa-link absolute left-4 top-4.5 text-slate-400"></i>
+                    <input type="text" id="videoUrl" placeholder="এখানে ফেসবুক ভিডিওর লিংকটি দিন..." 
+                           class="w-full pl-11 pr-4 py-4 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white text-sm sm:text-base transition-all duration-200">
+                </div>
+                <button onclick="downloadVideo()" id="downloadBtn"
+                        class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-4 rounded-xl transition duration-200 shadow-md shadow-blue-200 cursor-pointer flex items-center justify-center gap-2 whitespace-nowrap">
+                    <i class="fas fa-cloud-download-alt"></i> লিংক তৈরি করুন
+                </button>
+            </div>
+
+            <!-- Loading Spinner -->
+            <div id="loading" class="hidden mt-6 flex items-center justify-center gap-3 text-blue-600 font-semibold text-sm">
+                <svg class="animate-spin h-5 w-5 text-blue-600" xmlns="http://w3.org" fill="none" viewBox="0 0 24 24">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+                অপেক্ষা করুন, ভিডিওর সোর্স খোঁজা হচ্ছে...
+            </div>
+
+            <!-- Result Section -->
+            <div id="result" class="hidden mt-8 p-5 bg-emerald-50 rounded-xl border border-emerald-100 flex flex-col items-center">
+                <div class="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-600 text-xl mb-3">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <p class="text-emerald-800 font-bold mb-4">আপনার ভিডিও ডাউনলোডের জন্য প্রস্তুত!</p>
+                <a id="downloadLink" href="#" target="_blank" 
+                   class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-8 py-3 rounded-xl transition duration-200 shadow-lg shadow-emerald-100">
+                    <i class="fas fa-download"></i> এখনই ডাউনলোড করুন (MP4)
+                </a>
+            </div>
+            
+            <!-- Error Message -->
+            <div id="error" class="hidden mt-6 p-4 bg-rose-50 text-rose-700 rounded-xl border border-rose-100 font-medium text-sm flex items-center gap-2 justify-center">
+                <i class="fas fa-exclamation-circle"></i> <span id="errorText"></span>
+            </div>
+        </div>
+
+        <!-- How to Download Section -->
+        <section class="mt-16 w-full max-w-2xl">
+            <h2 class="text-xl font-bold text-center text-slate-800 mb-6">কীভাবে ভিডিও ডাউনলোড করবেন?</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                <div class="bg-white p-5 rounded-xl border border-slate-100 text-center shadow-sm">
+                    <div class="w-10 h-10 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center font-bold mx-auto mb-3">১</div>
+                    <p class="text-sm font-semibold text-slate-700">লিংক কপি করুন</p>
+                    <p class="text-xs text-slate-400 mt-1">ফেসবুকের যেকোনো ভিডিওর 'Copy Link' বাটনে চাপুন।</p>
+                </div>
+                <div class="bg-white p-5 rounded-xl border border-slate-100 text-center shadow-sm">
+                    <div class="w-10 h-10 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center font-bold mx-auto mb-3">২</div>
+                    <p class="text-sm font-semibold text-slate-700">এখানে পেস্ট করুন</p>
+                    <p class="text-xs text-slate-400 mt-1">আমাদের সাইটের বক্সে লিংকটি পেস্ট করে সাবমিট করুন।</p>
+                </div>
+                <div class="bg-white p-5 rounded-xl border border-slate-100 text-center shadow-sm">
+                    <div class="w-10 h-10 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center font-bold mx-auto mb-3">৩</div>
+                    <p class="text-sm font-semibold text-slate-700">ডাউনলোড সম্পন্ন</p>
+                    <p class="text-xs text-slate-400 mt-1">সবুজ বাটনটিতে ক্লিক করে মোবাইলে ভিডিওটি সেভ করুন।</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-6 text-center text-xs border-t border-slate-800">
+        <p>© 2026 FBVideoDownloader. All rights reserved. We are not affiliated with Facebook.</p>
+    </footer>
+
+    <script>
+        async function downloadVideo() {
+            const videoUrl = document.getElementById('videoUrl').value.trim();
+            const downloadBtn = document.getElementById('downloadBtn');
+            const loading = document.getElementById('loading');
+            const result = document.getElementById('result');
+            const errorDiv = document.getElementById('error');
+            const errorText = document.getElementById('errorText');
+            const downloadLink = document.getElementById('downloadLink');
+
+            if (!videoUrl) {
+                alert('অনুগ্রহ করে একটি সঠিক লিংক দিন!');
+                return;
+            }
+
+            errorDiv.classList.add('hidden');
+            result.classList.add('hidden');
+            loading.classList.remove('hidden');
+            downloadBtn.disabled = true;
+
+            try {
+                const apiEndpoint = `https://vkrhost.in{encodeURIComponent(videoUrl)}`;
+                const response = await fetch(apiEndpoint);
+                const data = await response.json();
+
+                if (data && data.data && data.data.url) {
+                    downloadLink.href = data.data.url;
+                    result.classList.remove('hidden');
+                } else if (data && data.url) {
+                    downloadLink.href = data.url;
+                    result.classList.remove('hidden');
+                } else {
+                    throw new Error('ভিডিওর আসল লিংকটি খুঁজে পাওয়া যায়নি। দয়া করে অন্য লিংক চেষ্টা করুন।');
+                }
+            } catch (err) {
+                errorText.innerText = err.message || 'কোথাও একটি সমস্যা হয়েছে! আবার চেষ্টা করুন।';
+                errorDiv.classList.remove('hidden');
+            } finally {
+                loading.classList.add('hidden');
+                downloadBtn.disabled = false;
+            }
+        }
+    </script>
+</body>
+</html>
