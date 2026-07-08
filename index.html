@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="bn">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FBVideoDownloader - ফ্রি ফেসবুক ভিডিও ডাউনলোডার</title>
+    <title>FBVideoDownloader - Free Facebook Video Downloader</title>
     <!-- Tailwind CSS for Modern UI -->
     <script src="https://jsdelivr.net"></script>
     <link rel="stylesheet" href="https://cloudflare.com">
@@ -16,7 +16,7 @@
             <i class="fab fa-facebook text-blue-600 text-3xl"></i>
             <span class="text-xl font-black text-slate-900 tracking-tight">FBVideo<span class="text-blue-600">Downloader</span></span>
         </div>
-        <span class="bg-blue-50 text-blue-700 text-xs font-bold px-3 py-1 rounded-full">১০০% ফ্রি</span>
+        <span class="bg-blue-50 text-blue-700 text-xs font-bold px-3 py-1 rounded-full">100% Free</span>
     </header>
 
     <!-- Main Content -->
@@ -24,19 +24,19 @@
         
         <!-- Downloader Card -->
         <div class="bg-white p-6 sm:p-10 rounded-2xl shadow-xl border border-slate-100 w-full max-w-2xl text-center backdrop-blur-md">
-            <h1 class="text-2xl sm:text-4xl font-extrabold text-slate-900 mb-3 tracking-tight">ফেসবুক ভিডিও ডাউনলোড করুন সরাসরি</h1>
-            <p class="text-slate-500 text-sm sm:text-base mb-8">যেকোনো ফেসবুক ভিডিওর লিংক নিচে পেস্ট করে এক ক্লিকে ফুল এইচডি (HD) কোয়ালিটিতে ডাউনলোড করুন।</p>
+            <h1 class="text-2xl sm:text-4xl font-extrabold text-slate-900 mb-3 tracking-tight">Facebook Video Downloader</h1>
+            <p class="text-slate-500 text-sm sm:text-base mb-8">Paste any Facebook video link below to download it in Full HD quality instantly.</p>
 
             <!-- Input Box Wrapper -->
             <div class="flex flex-col sm:flex-row gap-3 mb-4">
                 <div class="relative flex-grow">
                     <i class="fas fa-link absolute left-4 top-4.5 text-slate-400"></i>
-                    <input type="text" id="videoUrl" placeholder="এখানে ফেসবুক ভিডিওর লিংকটি দিন..." 
+                    <input type="text" id="videoUrl" placeholder="Paste Facebook video link here..." 
                            class="w-full pl-11 pr-4 py-4 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white text-sm sm:text-base transition-all duration-200">
                 </div>
                 <button onclick="downloadVideo()" id="downloadBtn"
                         class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-4 rounded-xl transition duration-200 shadow-md shadow-blue-200 cursor-pointer flex items-center justify-center gap-2 whitespace-nowrap">
-                    <i class="fas fa-cloud-download-alt"></i> লিংক তৈরি করুন
+                    <i class="fas fa-cloud-download-alt"></i> Get Download Links
                 </button>
             </div>
 
@@ -46,7 +46,7 @@
                     <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
                     <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                 </svg>
-                অপেক্ষা করুন, ভিডিওর সোর্স খোঁজা হচ্ছে...
+                Please wait, fetching video sources...
             </div>
 
             <!-- Result Section -->
@@ -54,10 +54,10 @@
                 <div class="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-600 text-xl mb-3">
                     <i class="fas fa-check-circle"></i>
                 </div>
-                <p class="text-emerald-800 font-bold mb-4">আপনার ভিডিও ডাউনলোডের জন্য প্রস্তুত!</p>
+                <p class="text-emerald-800 font-bold mb-4">Your Video is Ready for Download!</p>
                 <a id="downloadLink" href="#" target="_blank" 
                    class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-8 py-3 rounded-xl transition duration-200 shadow-lg shadow-emerald-100">
-                    <i class="fas fa-download"></i> এখনই ডাউনলোড করুন (MP4)
+                    <i class="fas fa-download"></i> Download Now (MP4)
                 </a>
             </div>
             
@@ -69,22 +69,22 @@
 
         <!-- How to Download Section -->
         <section class="mt-16 w-full max-w-2xl">
-            <h2 class="text-xl font-bold text-center text-slate-800 mb-6">কীভাবে ভিডিও ডাউনলোড করবেন?</h2>
+            <h2 class="text-xl font-bold text-center text-slate-800 mb-6">How to Download Facebook Videos?</h2>
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
                 <div class="bg-white p-5 rounded-xl border border-slate-100 text-center shadow-sm">
-                    <div class="w-10 h-10 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center font-bold mx-auto mb-3">১</div>
-                    <p class="text-sm font-semibold text-slate-700">লিংক কপি করুন</p>
-                    <p class="text-xs text-slate-400 mt-1">ফেসবুকের যেকোনো ভিডিওর 'Copy Link' বাটনে চাপুন।</p>
+                    <div class="w-10 h-10 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center font-bold mx-auto mb-3">1</div>
+                    <p class="text-sm font-semibold text-slate-700">Copy Video URL</p>
+                    <p class="text-xs text-slate-400 mt-1">Go to Facebook and copy the link of the video you want to download.</p>
                 </div>
                 <div class="bg-white p-5 rounded-xl border border-slate-100 text-center shadow-sm">
-                    <div class="w-10 h-10 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center font-bold mx-auto mb-3">২</div>
-                    <p class="text-sm font-semibold text-slate-700">এখানে পেস্ট করুন</p>
-                    <p class="text-xs text-slate-400 mt-1">আমাদের সাইটের বক্সে লিংকটি পেস্ট করে সাবমিট করুন।</p>
+                    <div class="w-10 h-10 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center font-bold mx-auto mb-3">2</div>
+                    <p class="text-sm font-semibold text-slate-700">Paste Link Here</p>
+                    <p class="text-xs text-slate-400 mt-1">Paste the link into the input field above and click 'Get Download Links'.</p>
                 </div>
                 <div class="bg-white p-5 rounded-xl border border-slate-100 text-center shadow-sm">
-                    <div class="w-10 h-10 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center font-bold mx-auto mb-3">৩</div>
-                    <p class="text-sm font-semibold text-slate-700">ডাউনলোড সম্পন্ন</p>
-                    <p class="text-xs text-slate-400 mt-1">সবুজ বাটনটিতে ক্লিক করে মোবাইলে ভিডিওটি সেভ করুন।</p>
+                    <div class="w-10 h-10 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center font-bold mx-auto mb-3">3</div>
+                    <p class="text-sm font-semibold text-slate-700">Download Done</p>
+                    <p class="text-xs text-slate-400 mt-1">Click the green download button to save the video to your device.</p>
                 </div>
             </div>
         </section>
@@ -107,7 +107,7 @@
             const downloadLink = document.getElementById('downloadLink');
 
             if (!videoUrl) {
-                alert('অনুগ্রহ করে একটি সঠিক লিংক দিন!');
+                alert('Please enter a valid Facebook URL!');
                 return;
             }
 
@@ -128,10 +128,10 @@
                     downloadLink.href = data.url;
                     result.classList.remove('hidden');
                 } else {
-                    throw new Error('ভিডিওর আসল লিংকটি খুঁজে পাওয়া যায়নি। দয়া করে অন্য লিংক চেষ্টা করুন।');
+                    throw new Error('Video source link not found. Please try another link.');
                 }
             } catch (err) {
-                errorText.innerText = err.message || 'কোথাও একটি সমস্যা হয়েছে! আবার চেষ্টা করুন।';
+                errorText.innerText = err.message || 'Something went wrong! Please try again.';
                 errorDiv.classList.remove('hidden');
             } finally {
                 loading.classList.add('hidden');
